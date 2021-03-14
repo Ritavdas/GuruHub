@@ -18,13 +18,15 @@
 <h1>Search Results:</h1>
 <br>
 
+{% for item in results %}
+
 <!-- Teacher Card stripe -->
 
 
 <div style="margin: auto; margin: 20px; border-radius: 15px; width: 70%; background-color: white; height: 210px; float: left; display: flex;">
 	
 	<div>
-		<img style="padding: 20px" src="profile.jpeg" width="150px"; height="170px">
+		<img style="padding: 20px" src="{{item.tid.pic.url}}" width="150px"; height="170px">
 	</div>
 
 
@@ -34,17 +36,17 @@
 
 		<div style="display: flex; padding: 10px">
 		
-				<h2>John Derek</h2>
+				<h2>{{item.tid.name}}</h2>
 				<span style="position: relative; top: 25px; left: 20px; font-size: 20px; color: orange" class="fa fa-star"></span>
-				<h4 style="position: relative; left: 30px; top: 5px; color: grey">4.5</h4>
-				<h4 style="position: relative; left: 45px; top: 7px; color: grey; font-size: 15px">(14 students)</h4>
+				<h4 style="position: relative; left: 30px; top: 5px; color: grey">{{item.tid.star}}</h4>
+				<h4 style="position: relative; left: 45px; top: 7px; color: grey; font-size: 15px">({{item.tid.taught}} students)</h4>
 
-				<h2 style="position: relative; left: 60%; top: -30px ;font-size: 25px; font-weight: bolder;">14$/h</h2>
+				<h2 style="position: relative; left: 60%; top: -30px ;font-size: 25px; font-weight: bolder;">{{item.tid.rate}}$/h</h2>
 
 		</div>
 
 		<div style="padding: 10px; position: relative; top: -40px; font-family: verdana; color: grey">
-			<p> Mathematics GCSE - help with getting your grades up! English GCSE - I`ve read all the books for GCSE from Dickens to Conan Doyle! Online lessons given. </p>
+			<p> {{item.tid.about}} </p>
 
 		</div>
 
@@ -52,7 +54,7 @@
 		
 				
 				<span style="position: relative; top: 25px; left: 20px; font-size: 20px; color: black" class="fa fa-map-marker"></span>
-				<h4 style="position: relative; left: 30px; top: 5px; color: grey">London</h4>
+				<h4 style="position: relative; left: 30px; top: 5px; color: grey">{{item.tid.address}}</h4>
 				
 
 		</div>
@@ -72,6 +74,20 @@
 <br>
 
 <!-- ENDS HERE -->
+{% endfor %}
+
+
+
+
+<!--
+{% for item in results %}
+
+<h2>{{item.tid.taught}}<h2>
+
+
+{% endfor %}
+
+-->
 
 
 
