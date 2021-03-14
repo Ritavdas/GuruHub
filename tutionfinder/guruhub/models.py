@@ -28,3 +28,6 @@ class Subject(models.Model):
    level = models.CharField(max_length=20)
    mode = models.CharField(max_length=20)
 
+
+
+
