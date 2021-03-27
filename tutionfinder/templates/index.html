@@ -107,13 +107,33 @@
           <div class="col-md-5 order-md-last">
             <div class="login-wrap p-4 p-md-5">
               <h3 class="mb-4">Register Now</h3>
-              <form action="#" class="signup-form">
+              <form action="/" class="signup-form" method = 'POST'>
+                {% csrf_token %}
                 <div class="form-group">
-                  <label class="label" for="name">Full Name</label>
+                  <label class="label" for="name">First Name</label>
                   <input
                     type="text"
                     class="form-control"
                     placeholder="John Doe"
+                    name = "first_name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="label" for="name">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="John Doe"
+                    name = "last_name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="label" for="name">Username</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="John12"
+                    name = "username"
                   />
                 </div>
                 <div class="form-group">
@@ -122,6 +142,7 @@
                     type="text"
                     class="form-control"
                     placeholder="johndoe@gmail.com"
+                    name = "email"
                   />
                 </div>
                 <div class="form-group">
@@ -131,6 +152,7 @@
                     type="password"
                     class="form-control"
                     placeholder="Password"
+                    name = "password1"
                   />
                 </div>
                 <div class="form-group">
@@ -140,6 +162,7 @@
                     type="password"
                     class="form-control"
                     placeholder="Confirm Password"
+                    name ="password2"
                   />
                 </div>
                 <div class="form-group d-flex justify-content-end mt-4">
