@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': "guruhub",
         'USER': "postgres",
-        'PASSWORD': "postgresql",
+        'PASSWORD': "sristi",
         'HOST': "localhost"
     }
 }
