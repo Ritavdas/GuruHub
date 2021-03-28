@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <title>GuruHub</title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8 " />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -107,14 +107,14 @@
           <div class="col-md-5 order-md-last">
             <div class="login-wrap p-4 p-md-5">
               <h3 class="mb-4">Register Now</h3>
-              <form action="/" class="signup-form" method = 'POST'>
+              <form action="result" class="signup-form" method = 'POST'>
                 {% csrf_token %}
                 <div class="form-group">
                   <label class="label" for="name">First Name</label>
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="John Doe"
+                    placeholder="Sristi"
                     name = "first_name"
                   />
                 </div>
@@ -123,7 +123,7 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="John Doe"
+                    placeholder="Agrawal"
                     name = "last_name"
                   />
                 </div>
@@ -132,7 +132,7 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="John12"
+                    placeholder="Sristi2208"
                     name = "username"
                   />
                 </div>
@@ -141,7 +141,7 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="johndoe@gmail.com"
+                    placeholder="sristiagrawal2208@gmail.com"
                     name = "email"
                   />
                 </div>
@@ -151,7 +151,7 @@
                     id="password-field"
                     type="password"
                     class="form-control"
-                    placeholder="Password"
+                    placeholder="******"
                     name = "password1"
                   />
                 </div>
@@ -161,24 +161,96 @@
                     id="password-field"
                     type="password"
                     class="form-control"
-                    placeholder="Confirm Password"
+                    placeholder="*******"
                     name ="password2"
                   />
                 </div>
+                <p style="color: red;">{{msg}}</p>
+              <p style="color:blue;">{{msg1}}</p>
                 <div class="form-group d-flex justify-content-end mt-4">
                   <button type="submit" class="btn btn-primary submit">
-                    <span class="fa fa-paper-plane"></span>
+                    <span class="fa fa-paper-plane">Register</span>
                   </button>
                 </div>
               </form>
+              
+
               <p class="text-center">
-                Already have an account? <a href="{% static '#signin' %}">Sign In</a>
+                Already have an account? <a href="http://127.0.0.1:8000/login">Sign In</a>
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+
+<div style="background-color: skyblue; height: 400px; width: 100%">
+		<center><h1 style="color: white; position: relative; top: 10px">Find a tutor</h1></center>
+
+    <form action="searchresults">
+                    <div style="background-color: white; border-radius: 20px; margin: auto; width: 75%; height: 75%; position: relative; top: 10px">
+
+
+                          <div style="background-color: white; margin: auto; width: 75%; display: flex;">
+                            
+                            <select style="margin: auto; width: 75%; position: relative; top: 25px; margin: 20px; height: 40px; border-radius: 10px" name="subjects" id="subjects">
+                              <option value="Maths">Maths</option>
+                              <option value="Hindi">Hindi</option>
+                              <option value="English">English</option>
+                              <option value="Music">Music</option>
+                              <option value="Physics">Physics</option>
+                              <option value="Chemistry">Chemistry</option>
+                              <option value="Accounting">Accounting</option>
+                            </select>
+
+
+                            <select style="margin: auto; width: 75%; position: relative; top: 25px; margin: 20px; height: 40px; border-radius: 10px" name="level" id="level">
+                              <option value="AllLevels">All Levels</option>
+                              <option value="Primary">Primary</option>
+                              <option value="Degree">Degree</option>
+                              <option value="KS3">KS3</option>
+                              <option value="A-level">A-level</option>
+                              <option value="GCSE">GCSE</option>
+                              
+                            </select>
+
+                          </div>
+
+                          <div style="background-color: white; margin: auto; width: 75%; display: flex;">
+                            
+                            <select style="margin: auto; width: 45%; position: relative; top: 25px; margin: 20px; height: 40px; border-radius: 10px" name="location" id="location">
+                              <option value="Ahmedabad">Ahmedabad</option>
+                              <option value="Delhi">Delhi</option>
+                              <option value="Kolkata">Kolkata</option>
+                              <option value="Surat">Surat</option>
+                              <option value="Baroda">Baroda</option>
+                              <option value="Mumbai">Mumbai</option>
+                              <option value="Hyderabad">Hyderabad</option>
+                              <option value="Banglore">Banglore</option>
+                            </select>
+
+                            <div style="width: 50%; position: relative; top: 50px; left: 25px">
+
+                              <input style="width: 20px; height: 20px" type="checkbox" id="mode" name="mode" value="True">
+                              <label style="position: relative; bottom: 4px; left: 10px; font-size: 20px" for="mode">In Person</label><br>
+
+                            </div>
+
+                          </div>
+
+                          <div style="margin: auto; width: 20%">
+                            <button type="submit" style="position: relative; top: 50px; width: 100%; height: 40px; border-radius: 15px; background-color: magenta; font-weight: bolder; color: white; border-color: magenta; font-size: 15px; ">Search</button>
+                          </div>					
+
+
+                    </div>
+
+    </form>
+		
+	</div>
+
+
 
     <section class="ftco-section">
       <div class="container">

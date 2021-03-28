@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 def register(request):
+
+    fn = request.POST['first']
     return render(request,'accounts/register.html')
 def login(request):
     return render(request,'accounts/login.html')
