@@ -1,4 +1,3 @@
-from account.views import login
 from django.urls import path
 from . import views
 urlpatterns = [
