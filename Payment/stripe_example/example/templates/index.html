@@ -21,14 +21,23 @@
 
   <body>
     <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'index' %}"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Store</h3>
+      </div>
+
       <div class="jumbotron">
-        <img
-          style="width: 600px"
-          src="https://www.ewa.org/sites/main/files/imagecache/lightbox/main-images/bigstock-pretty-teacher-smiling-at-came-69887626.jpg"
-          alt=""
-        />
-        <p style="font-size: 20px; font-family: monospace">Ms. Kamala Harris</p>
-        <a href="#" id="buy_now_btn" class="btn btn-primary">Book Now</a>
+        <h1 class="display-3">The Product</h1>
+        <p class="lead">Purchase The Product for only $99.</p>
+        <a href="#" id="buy_now_btn" class="btn btn-primary">Buy Now</a>
       </div>
 
       <script src="https://js.stripe.com/v3/"></script>
@@ -61,7 +70,7 @@
       </script>
 
       <footer class="footer">
-        <p>&copy; GuruHub</p>
+        <p>&copy; Store 2017</p>
       </footer>
     </div>
     <!-- /container -->
