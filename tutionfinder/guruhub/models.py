@@ -28,6 +28,7 @@ class Subject(models.Model):
    level = models.CharField(max_length=20)
    mode = models.CharField(max_length=20)
 
+<<<<<<< HEAD
 class Register(models.Model):
    first_name = models.CharField(max_length=50)
    last_name = models.CharField(max_length=50)
@@ -37,6 +38,8 @@ class Register(models.Model):
 
 
 
+=======
+>>>>>>> 631264b5928366e9451d4ab12b2205b71b744e22
 
 
 
