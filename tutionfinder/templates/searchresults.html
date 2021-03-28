@@ -1,0 +1,146 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Search Results</title>
+    <meta name="description" content="The HTML5 Herald" />
+    <meta name="author" content="SitePoint" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body style="background-color: lightgrey">
+    <h1>Search Results:</h1>
+    <br />
+
+    {% for item in results %}
+
+    <!-- Teacher Card stripe -->
+
+    <div
+      style="
+        margin: auto;
+        margin: 20px;
+        border-radius: 15px;
+        width: 70%;
+        background-color: white;
+        height: 210px;
+        float: left;
+        display: flex;
+      "
+    >
+      <div>
+        <img
+          style="padding: 20px"
+          src="{{item.tid.pic.url}}"
+          width="150px"
+          ;
+          height="170px"
+        />
+      </div>
+
+      <div
+        style="
+          background-color: white;
+          height: 170px;
+          width: 100%;
+          margin: 20px;
+        "
+      >
+        <div style="display: flex; padding: 10px">
+          <h2>{{item.tid.name}}</h2>
+          <span
+            style="
+              position: relative;
+              top: 25px;
+              left: 20px;
+              font-size: 20px;
+              color: orange;
+            "
+            class="fa fa-star"
+          ></span>
+          <h4 style="position: relative; left: 30px; top: 5px; color: grey">
+            {{item.tid.star}}
+          </h4>
+          <h4
+            style="
+              position: relative;
+              left: 45px;
+              top: 7px;
+              color: grey;
+              font-size: 15px;
+            "
+          >
+            ({{item.tid.taught}} students)
+          </h4>
+
+          <h2
+            style="
+              position: relative;
+              left: 60%;
+              top: -30px;
+              font-size: 25px;
+              font-weight: bolder;
+            "
+          >
+            {{item.tid.rate}}$/h
+          </h2>
+        </div>
+
+        <div
+          style="
+            padding: 10px;
+            position: relative;
+            top: -40px;
+            font-family: verdana;
+            color: grey;
+          "
+        >
+          <p>{{item.tid.about}}</p>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            padding: 10px;
+            top: -50%;
+            left: -20px;
+            position: relative;
+          "
+        >
+          <span
+            style="
+              position: relative;
+              top: 25px;
+              left: 20px;
+              font-size: 20px;
+              color: black;
+            "
+            class="fa fa-map-marker"
+          ></span>
+          <h4 style="position: relative; left: 30px; top: 5px; color: grey">
+            {{item.tid.address}}
+          </h4>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+
+    <!-- ENDS HERE -->
+    {% endfor %}
+
+    <!--
+{% for item in results %}
+
+<h2>{{item.tid.taught}}<h2>
+
+
+{% endfor %}
+
+-->
+  </body>
+</html>
