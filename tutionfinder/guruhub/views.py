@@ -92,32 +92,3 @@ from .models import Card
 def index(request):
     car = Card.objects.all()
     return render(request, 'index.html', {'cards':car})
-<<<<<<< HEAD
-=======
-
-
-
-def searchresults(request):
-
-    sub = request.GET['subjects']
-    level = request.GET['level']
-    addr = request.GET['location']
-
-   
-
-    try:
-        mode = bool(request.GET['mode'])
-        mode = 'In Person'
-
-    except:
-        mode = 'Online'
-
- 
-    results = Subject.objects.filter(subject__icontains = sub, level__icontains = level, mode__icontains = mode).select_related('tid')
-
-    
-
-    
-
-    return render(request, 'searchresults.html',{'results':results})
->>>>>>> 631264b5928366e9451d4ab12b2205b71b744e22
