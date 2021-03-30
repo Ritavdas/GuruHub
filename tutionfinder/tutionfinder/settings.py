@@ -81,11 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': "guruhub",
         'USER': "postgres",
-<<<<<<< HEAD
         'PASSWORD': "ritavdas",
-=======
-        'PASSWORD': "sristi",
->>>>>>> 1de8e1aacd04edc5315466f0d78e50f126276ace
         'HOST': "localhost"
     }
 }
@@ -140,3 +136,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STRIPE_PUBLIC_KEY = 'pk_test_51IErhKGbPNWKZhuvn0FYAnLHxUaE3y5A6AhrY4nmZBEqBl7pxRX3wteGACBpS2AYr8NCmbJ1Lz1GaaHBBv8tRgHk006TdeDBBE'
 
 STRIPE_PRIVATE_KEY = 'sk_test_51IErhKGbPNWKZhuvcN111vHIWaMbWxDVHAwIoOwUJuKtJ5jub4iVDrYK0xXRpNQX3DCJR63H4cAVtBr4t63ZaE0q00v16e7aOZ'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'capstonekapoor@gmail.com'
+EMAIL_HOST_PASSWORD = 'vozkecijjugkmaic'
