@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from .models import Card, Subject, Tutor
-<<<<<<< HEAD
-from django.contrib import auth
-from django.contrib.auth.models import User
+
+#from django.contrib import auth
+from django.contrib.auth.models import User, auth
 
 # Create your views here.
 def index(request):
@@ -35,11 +35,20 @@ def regres(request):
 
         else:
             #Looks good
-            User.objects.create(first_name=fn, last_name = ln, username = username, password = password,email = email)
+            #User.objects.create(first_name=fn, last_name = ln, username = username, password = password,email = email)
+            user = User.objects.create_user(first_name=fn, last_name = ln, username = username, password = password,email = email)
+            user.save()
             return render(request, 'index.html',{'msg1':"Thanks for Registering with us."})
 
 def loginload(request):
     return render(request,'login.html')
+
+
+def logout(request):
+    
+    auth.logout(request)
+    return render(request, 'index.html',{'msg':"Successfully logged out!"})
+
 
 
 
@@ -85,9 +94,7 @@ def searchresults(request):
 
 
 from .models import Card
-=======
 
->>>>>>> 631264b5928366e9451d4ab12b2205b71b744e22
 # Create your views here.
 def index(request):
     car = Card.objects.all()
