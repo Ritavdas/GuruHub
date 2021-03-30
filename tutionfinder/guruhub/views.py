@@ -38,7 +38,7 @@ def regres(request):
             #User.objects.create(first_name=fn, last_name = ln, username = username, password = password,email = email)
             user = User.objects.create_user(first_name=fn, last_name = ln, username = username, password = password,email = email)
             user.save()
-            return render(request, 'index.html',{'msg1':"Thanks for Registering with us."})
+            return render(request, 'login.html',{'msg1':"Thanks for Registering with us."})
 
 def loginload(request):
     return render(request,'login.html')
