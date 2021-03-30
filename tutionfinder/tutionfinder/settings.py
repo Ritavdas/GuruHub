@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path,os
+from pathlib import Path, os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ex452(d8k1n4n3x!m$hyg21%qtb6y+2ml46j96^3&i7qm%c36q'
+SECRET_KEY = 'qhwbe=d7+zjwzs9&@jd(am7@9llfo&fpava%nrhh7o$td%_6f9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'example',
     'guruhub',
     'account',
     'django.contrib.admin',
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'tutionfinder.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,9 +79,9 @@ WSGI_APPLICATION = 'tutionfinder.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "guruhub3",
+        'NAME': "guruhub",
         'USER': "postgres",
-        'PASSWORD': "postgresql",
+        'PASSWORD': "ritavdas",
         'HOST': "localhost"
     }
 }
@@ -123,10 +124,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
 
 ]
-STATIC_ROOT=os.path.join(BASE_DIR,'assets')
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+STRIPE_PUBLIC_KEY = 'pk_test_51IErhKGbPNWKZhuvn0FYAnLHxUaE3y5A6AhrY4nmZBEqBl7pxRX3wteGACBpS2AYr8NCmbJ1Lz1GaaHBBv8tRgHk006TdeDBBE'
+
+STRIPE_PRIVATE_KEY = 'sk_test_51IErhKGbPNWKZhuvcN111vHIWaMbWxDVHAwIoOwUJuKtJ5jub4iVDrYK0xXRpNQX3DCJR63H4cAVtBr4t63ZaE0q00v16e7aOZ'

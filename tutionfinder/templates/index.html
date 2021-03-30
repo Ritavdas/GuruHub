@@ -72,6 +72,15 @@
             <li class="nav-item">
               <a href="{% static 'contact.html' %}" class="nav-link">Contact</a>
             </li>
+            {% if user.is_authenticated %}   
+            <li class="nav-item">
+              <a href="#" class="nav-link">Hello, {{user.first_name}}</a>
+            </li>
+            <li class="nav-item">
+              <a href="http://127.0.0.1:8000/logout" class="nav-link">Logout</a>
+            </li>
+            {% endif %}
+            
           </ul>
         </div>
       </div>
@@ -99,6 +108,9 @@
         </div>
       </div>
     </div>
+
+
+    {% if not user.is_authenticated %}
 
     <section class="ftco-section ftco-no-pb ftco-no-pt">
       <div class="container">
@@ -183,6 +195,8 @@
         </div>
       </div>
     </section>
+
+    {% endif %}
 
 
 <div style="background-color: skyblue; height: 400px; width: 100%">
