@@ -106,7 +106,7 @@
           <div class="col-md-7"></div>
           <div class="col-md-5 order-md-last">
             <div class="login-wrap p-4 p-md-5">
-              <h3 class="mb-4">Register Now</h3>
+              <h3 class="mb-4">Login Now</h3>
               <form action="http://127.0.0.1:8000/dashboard" class="signup-form" method = 'POST'>
                 {% csrf_token %}
                 
@@ -130,7 +130,7 @@
                     name = "password1"
                   />
                 
-                <p style="color: red;">{{msg}}</p>
+                <p style="color: red;">{{msg2}}</p>
               <p style="color:blue;">{{msg1}}</p>
                 <div class="form-group d-flex justify-content-end mt-4">
                   <button type="submit" class="btn btn-primary submit">

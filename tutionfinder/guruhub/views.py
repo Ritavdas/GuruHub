@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Card, Subject, Tutor
 
 #from django.contrib import auth
@@ -47,7 +47,7 @@ def loginload(request):
 def logout(request):
     
     auth.logout(request)
-    return render(request, 'index.html',{'msg':"Successfully logged out!"})
+    return render(request, 'index.html',{'msg1':"Successfully logged out!"})
 
 
 
@@ -61,9 +61,9 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return render(request, 'dashboard.html',{'msg1':"You are now logged in"})
+            return render(request, 'index.html',{'msg1':"You are now logged in"})
         else:
-            return render(request, 'index.html')
+            return render(request, 'login.html',{'msg2':"Invalid Credentials"})
     else:
         return render(request,'login.html')
 
