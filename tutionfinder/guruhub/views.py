@@ -18,6 +18,7 @@ def regres(request):
     email = request.POST['email']
     password = request.POST['password1']
     confirm_password = request.POST['password2']
+    category = request.POST['category']
 
     if fn=="" or username=="" or email=="" or password=="" or confirm_password=="":
 
@@ -38,6 +39,9 @@ def regres(request):
             #User.objects.create(first_name=fn, last_name = ln, username = username, password = password,email = email)
             user = User.objects.create_user(first_name=fn, last_name = ln, username = username, password = password,email = email)
             user.save()
+
+            if category == "tutor":
+                Tutor(tid = int(Tutor.objects.all().count()) + 1, pic = None, name = fn, star = 0, about = "null", taught = 0, rate = 0, address = "null" ).save()
             return render(request, 'login.html',{'msg1':"Thanks for Registering with us."})
 
 def loginload(request):
@@ -99,3 +103,9 @@ from .models import Card
 def index(request):
     car = Card.objects.all()
     return render(request, 'index.html', {'cards':car})
+
+
+def maindash(request):
+
+    return render(request, 'maindash.html')
+

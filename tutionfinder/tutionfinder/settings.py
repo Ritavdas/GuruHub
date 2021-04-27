@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'tutionfinder.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "guruhub",
+        'NAME': "guruhub3",
         'USER': "postgres",
-        'PASSWORD': "ritavdas",
+        'PASSWORD': "postgresql",
         'HOST': "localhost"
     }
 }

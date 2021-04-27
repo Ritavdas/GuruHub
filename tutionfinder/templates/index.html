@@ -74,6 +74,9 @@
             </li>
             {% if user.is_authenticated %}   
             <li class="nav-item">
+              <a href="http://127.0.0.1:8000/maindash" class="nav-link">Dashboard</a>
+            </li>
+            <li class="nav-item">
               <a href="#" class="nav-link">Hello, {{user.first_name}}</a>
             </li>
             <li class="nav-item">
@@ -148,6 +151,7 @@
                     name = "username"
                   />
                 </div>
+
                 <div class="form-group">
                   <label class="label" for="email">Email Address</label>
                   <input
@@ -157,6 +161,18 @@
                     name = "email"
                   />
                 </div>
+
+
+                 <div class="form-group">
+                  <label class="label" for="email">I am a </label>
+              
+                  <select class="form-control" placeholder="student" name="category">
+                    <option value="student">student</option>
+                    <option value="tutor">tutor</option>
+                    
+                  </select>
+                </div>               
+
                 <div class="form-group">
                   <label class="label" for="password">Password</label>
                   <input

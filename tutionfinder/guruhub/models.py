@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User, auth
 
 # Create your models here.
 
@@ -11,13 +12,13 @@ class Card(models.Model):
 
 class Tutor(models.Model):
    tid = models.IntegerField(primary_key = True)
-   pic = models.ImageField(upload_to='pics')
-   name = models.CharField(max_length=50)
-   star = models.IntegerField()
-   about = models.CharField(max_length=200)
-   taught = models.IntegerField()
-   rate = models.IntegerField()
-   address = models.CharField(max_length=50)
+   pic = models.ImageField(upload_to='pics',blank = True)
+   name = models.CharField(max_length=50,blank = True)
+   star = models.IntegerField(blank = True)
+   about = models.CharField(max_length=200,blank = True)
+   taught = models.IntegerField(blank = True)
+   rate = models.IntegerField(blank = True)
+   address = models.CharField(max_length=50,blank = True)
 
 
 
@@ -35,6 +36,10 @@ class Register(models.Model):
    user_name = models.CharField(max_length=50)
    password= models.CharField(max_length=50)
    email = models.EmailField(max_length=50)
+   
+
+
+
 
 
 
