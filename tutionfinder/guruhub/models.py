@@ -38,6 +38,10 @@ class Register(models.Model):
    email = models.EmailField(max_length=50)
    
 
+class Book(models.Model):
+   tutor = models.CharField(max_length=50)
+   student = models.CharField(max_length=50)
+
 
 
 

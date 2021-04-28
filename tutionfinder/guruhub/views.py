@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Card, Subject, Tutor
+from .models import Card, Subject, Tutor, Book
 from hashlib import sha1
 import string
 from django.core.mail import send_mail
@@ -114,7 +114,9 @@ def index(request):
 
 def maindash(request):
 
-    return render(request, 'maindash.html')
+    results = Book.objects.filter(tutor__icontains = request.user.first_name)
+
+    return render(request, 'maindash.html',{"res":results})
 
 
 def changepswd(request):
@@ -231,6 +233,20 @@ def subjectadded(request):
 
     #return render(request,'addsubject.html',{"msg":"Subject added successfully!"})
     return render(request,'addsubject.html',{"msg":tid_id})
+
+
+def booktutor(request):
+
+    tutor = request.GET['name']
+
+    student = request.user.first_name
+
+    Book.objects.create(tutor = tutor, student = student)
+
+    return render(request,'booktutor.html')
+
+
+
 
     
     
