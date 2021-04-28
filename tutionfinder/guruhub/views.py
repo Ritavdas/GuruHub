@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Card, Subject, Tutor
 from hashlib import sha1
+from django.core.mail import send_mail
 #from django.contrib import auth
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.hashers import check_password, make_password
@@ -134,9 +135,30 @@ def pswdchanged(request):
         p = User.objects.get(username = request.user.username)
         p.password = make_password(new)
         p.save()
-        return render(request, 'pswdchanged.html', {'msg':"Password successfully changed!"})
+        send_mail('Password changed!', 'Hello ' + request.user.first_name + ", Your password has been changed successfully!", 'guruhubportal@gmail.com', [request.user.email],fail_silently=False)
+        return render(request, 'pswdchanged.html', {'msg':"Password successfully changed! Mail sent to respective mailing address!"})
     else:
         return render(request,'changepswd.html', {'msg':"Old password do not match with our records!"})
+
+
+def forgetpass(request):
+    return render(request,'forgetpass.html')
+
+
+def mailsent(request):
+
+    username = request.GET['username']
+    
+    if User.objects.filter(username=username).exists():
+        return render(request,'mailsent.html')
+
+    else:
+        return render(request,'forgetpass.html', {"msg":"User does not exist!"})
+
+    
+    
+
+
 
 
     

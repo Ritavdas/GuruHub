@@ -137,9 +137,9 @@ STRIPE_PUBLIC_KEY = 'pk_test_51IErhKGbPNWKZhuvn0FYAnLHxUaE3y5A6AhrY4nmZBEqBl7pxR
 
 STRIPE_PRIVATE_KEY = 'sk_test_51IErhKGbPNWKZhuvcN111vHIWaMbWxDVHAwIoOwUJuKtJ5jub4iVDrYK0xXRpNQX3DCJR63H4cAVtBr4t63ZaE0q00v16e7aOZ'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'capstonekapoor@gmail.com'
-EMAIL_HOST_PASSWORD = 'vozkecijjugkmaic'
+EMAIL_HOST_USER = 'guruhubportal@gmail.com'
+EMAIL_HOST_PASSWORD = 'Guruhub@123'
