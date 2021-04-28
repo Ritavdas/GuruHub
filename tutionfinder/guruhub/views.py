@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Card, Subject, Tutor
 from hashlib import sha1
 from django.core.mail import send_mail
+import random
 #from django.contrib import auth
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.hashers import check_password, make_password
@@ -147,9 +148,20 @@ def forgetpass(request):
 
 def mailsent(request):
 
+    pwds = ['1234', 'samarth', 'capstone', '1111', 'mypassword','hello']
+
+    r = random.randint(0,len(pwds)-1)
+
+
+
     username = request.GET['username']
     
     if User.objects.filter(username=username).exists():
+        email = User.objects.get(username = username).email
+        p = User.objects.get(username = username)
+        p.password = make_password(pwds[r])
+        p.save()
+        send_mail('Password changed!', 'Hello ' + username + ", /n Your new password is "+"'"+pwds[r]+"'", 'guruhubportal@gmail.com', [email],fail_silently=False)
         return render(request,'mailsent.html')
 
     else:
