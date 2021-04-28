@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Card, Subject, Tutor
 from hashlib import sha1
+import string
 from django.core.mail import send_mail
+from .forms import TutorCreate
 import random
+import shutil
+import os
 #from django.contrib import auth
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.hashers import check_password, make_password
@@ -150,6 +154,14 @@ def mailsent(request):
 
     pwds = ['1234', 'samarth', 'capstone', '1111', 'mypassword','hello']
 
+    
+  
+
+    res = ''.join(random.choices(string.ascii_lowercase +
+                             string.digits, k = 5))
+  
+
+
     r = random.randint(0,len(pwds)-1)
 
 
@@ -159,13 +171,66 @@ def mailsent(request):
     if User.objects.filter(username=username).exists():
         email = User.objects.get(username = username).email
         p = User.objects.get(username = username)
-        p.password = make_password(pwds[r])
+        p.password = make_password(str(res))
         p.save()
-        send_mail('Password changed!', 'Hello ' + username + ", /n Your new password is "+"'"+pwds[r]+"'", 'guruhubportal@gmail.com', [email],fail_silently=False)
+        send_mail('Password changed!', 'Hello ' + username + ", Your new password is "+"'"+str(res)+"'", 'guruhubportal@gmail.com', [email],fail_silently=False)
         return render(request,'mailsent.html')
 
     else:
         return render(request,'forgetpass.html', {"msg":"User does not exist!"})
+
+
+def personaldetails(request):
+
+
+        
+    return render(request,'personaldetails.html')
+
+
+def detailsadded(request):
+
+    profilepic = request.GET['profilepic']
+
+    
+    path = os.path.join("E:\SEMVI\Capstone-I\photos",str(profilepic))
+    shutil.copy(path, "E:/SEMVI/Capstone-I/GuruHub/tutionfinder/media/pics")
+
+    
+
+    about = request.GET['about']
+    rate = request.GET['rate']
+    address = request.GET['address']
+    
+    p = Tutor.objects.get(name = request.user.first_name)
+
+
+    p.pic = "pics/" + str(profilepic)
+    p.about = about
+    p.rate = rate
+    p.address = address
+
+    p.save()
+
+    return render(request,'personaldetails.html', {"msg":"Details successfully added!"})
+
+def addsubject(request):
+
+    return render(request,'addsubject.html')
+
+
+def subjectadded(request):
+
+    subject = request.GET['subject']
+    subjectlevel = request.GET['subjectlevel']
+    mode = request.GET['mode']
+
+    tid_id = Tutor.objects.get(name = request.user.first_name).tid
+
+    Subject.objects.create(id = int(Subject.objects.all().count()) + 1 ,subject=subject, level=subjectlevel, mode=mode, tid_id = tid_id)
+
+
+    #return render(request,'addsubject.html',{"msg":"Subject added successfully!"})
+    return render(request,'addsubject.html',{"msg":tid_id})
 
     
     

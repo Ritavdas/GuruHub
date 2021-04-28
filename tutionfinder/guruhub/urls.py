@@ -12,6 +12,11 @@ urlpatterns = [
     path('pswdchanged', views.pswdchanged),
     path('forgetpass', views.forgetpass),
     path('mailsent', views.mailsent),
+    path('personaldetails', views.personaldetails),
+    path('detailsadded', views.detailsadded),
+    path('addsubject', views.addsubject),
+    path('subjectadded', views.subjectadded),
 
     path('searchresults', views.searchresults)
+    
 ]
