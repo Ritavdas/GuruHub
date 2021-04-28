@@ -239,7 +239,12 @@ def booktutor(request):
 
     tutor = request.GET['name']
 
-    student = request.user.first_name
+    try:
+
+        student = request.user.first_name
+    except:
+        return render(request,'booktutor.html',{"msg":"Please login as student first!"})
+
 
     Book.objects.create(tutor = tutor, student = student)
 
