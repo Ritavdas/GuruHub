@@ -1,0 +1,25 @@
+<h2> Change Password: </h2>
+
+
+<form action="pswdchanged" method="post">
+{% csrf_token%}
+
+
+<label> Old password: </label>
+<input type="password" name="old">
+<br>
+<br>
+<label> New password: </label>
+<input type="password" name="new">
+<br>
+<br>
+<label> Confirm new password: </label>
+<input type="password" name="connew">
+<br>
+<br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+<h3 style="color: red"> {{msg}} </h3>

@@ -8,6 +8,8 @@ urlpatterns = [
     path('result',views.regres),
     path('logout',views.logout),
     path('maindash', views.maindash),
+    path('changepswd', views.changepswd),
+    path('pswdchanged', views.pswdchanged),
 
     path('searchresults', views.searchresults)
 ]

@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Card, Subject, Tutor
-
+from hashlib import sha1
 #from django.contrib import auth
 from django.contrib.auth.models import User, auth
+from django.contrib.auth.hashers import check_password, make_password
 
 # Create your views here.
 def index(request):
@@ -108,4 +109,37 @@ def index(request):
 def maindash(request):
 
     return render(request, 'maindash.html')
+
+
+def changepswd(request):
+    return render(request, 'changepswd.html')
+
+def pswdchanged(request):
+    msg = ""
+
+
+
+    old = request.POST['old']
+    new = request.POST['new']
+    connew = request.POST['connew']
+
+    if old == "" or new=="" or connew=="":
+        return render(request,'changepswd.html', {'msg':"Enter required fields!"})
+
+    
+    if new!=connew:
+        return render(request,'changepswd.html', {'msg':"Password do not match!"})
+
+    if check_password(old,User.objects.get(username = request.user.username).password):
+        p = User.objects.get(username = request.user.username)
+        p.password = make_password(new)
+        p.save()
+        return render(request, 'pswdchanged.html', {'msg':"Password successfully changed!"})
+    else:
+        return render(request,'changepswd.html', {'msg':"Old password do not match with our records!"})
+
+
+    
+    
+
 
