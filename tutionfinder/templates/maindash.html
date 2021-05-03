@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
 <h1>Dashboard</h1>
 
 <br>
@@ -5,6 +12,20 @@
 
 
 <br>
+<br>
+<br>
+<form action="personaldetails">
+
+<input type="submit" value="Update personal details">
+
+</form>
+<br>
+<br>
+<form action="addsubject">
+
+<input type="submit" value="Add subject">
+
+</form>
 <br>
 <br>
 
@@ -16,8 +37,44 @@
 <br>
 <br>
 
+ <!-- Trigger/Open the Modal -->
+
+
+<div class="w3-container">
+
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Notifications</button>
+
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        
+        {% for i in res%}
+        <p>{{i.student}} has booked you for classes.</p>
+        <br>
+        
+        {% endfor %}
+     
+
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
 <form action="logout">
 
 <input type="submit" value="Logout">
 
 </form>
+
+
+
+
+</body>
+
+</html>
