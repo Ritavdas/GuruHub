@@ -252,6 +252,46 @@ def booktutor(request):
 
 
 
+def givestar(request):
+
+    if request.user.is_authenticated:
+
+        name = request.GET['name']
+
+        try:
+            star = int(request.GET['givestar'])
+        except:
+            return render(request,'searchresults.html',{"starmsg":"Go back and enter the starrating or give rating only in integer!"})
+
+        
+        if isinstance(star, int) and star<=5:
+            starobj = Tutor.objects.get(name = name)
+            starobj.starcount = starobj.starcount + 1
+
+            starobj.save()
+            #print("Hello")
+
+            starobj = Tutor.objects.get(name = name)
+
+            
+            b = (  (starobj.star*(int(starobj.starcount)-1))   + star)/int(starobj.starcount)
+            starobj.star = round(b,1)
+            starobj.save()
+            return render(request,'searchresults.html',{"starmsg":"Star rating given!"})
+
+
+
+        else:
+            return render(request,'searchresults.html',{"starmsg":"Enter rating between 1 to 5 only!"})
+
+
+
+            
+
+
+    else:
+        return render(request,'searchresults.html',{"starmsg":"To give rating, you first need to login!"})
+    
 
     
     

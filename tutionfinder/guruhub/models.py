@@ -14,7 +14,9 @@ class Tutor(models.Model):
    tid = models.IntegerField(primary_key = True)
    pic = models.ImageField(upload_to='pics',blank = True)
    name = models.CharField(max_length=50,blank = True)
-   star = models.IntegerField(blank = True)
+   star = models.FloatField(blank = True)
+   starcount = models.IntegerField(default = 0)
+
    about = models.CharField(max_length=200,blank = True)
    taught = models.IntegerField(blank = True)
    rate = models.IntegerField(blank = True)

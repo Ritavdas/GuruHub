@@ -17,6 +17,7 @@ urlpatterns = [
     path('addsubject', views.addsubject),
     path('subjectadded', views.subjectadded),
     path('booktutor',views.booktutor),
+    path('givestar',views.givestar),
    
 
     path('searchresults', views.searchresults)

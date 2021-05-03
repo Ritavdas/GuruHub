@@ -14,6 +14,8 @@
 
   <body style="background-color: lightgrey">
     <h1>Search Results:</h1>
+    <h2>{{starmsg}} </h2>
+  
     <br />
 
     {% for item in results %}
@@ -130,9 +132,22 @@
           <h4 style="position: relative; left: 30px; top: 5px; color: grey">
             {{item.tid.address}}
           </h4>
+          <br>
+          <br>
+
+          <form style="position:relative; left: 100px; top: 20px" action="givestar">
+            <input style="display: None" type="text" name="name" value="{{item.tid.name}}">
+            <input type="text" name="givestar">
+            <input type="submit" value="Give star!">
+            
+            </form>
+        
         </div>
+        
       </div>
+      
     </div>
+      
     <br />
     <br />
 
