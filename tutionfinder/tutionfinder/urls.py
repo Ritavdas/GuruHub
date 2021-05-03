@@ -26,8 +26,13 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('admin/', admin.site.urls),
     path('payment/', views.index, name='index'),
+
     path('thanks/', views.thanks, name='thanks'),
-    path('checkout/', views.checkout, name='checkout'),
+    path('checkout1/', views.checkout1, name='checkout1'),
+    path('checkout2/', views.checkout2, name='checkout2'),
+    path('checkout3/', views.checkout3, name='checkout3'),
+    path('checkout4/', views.checkout4, name='checkout4'),
+
     path('stripe_webhook/', views.stripe_webhook, name='stripe_webhook'),
     path('reset_password/', auth_views.PasswordResetView.as_view(),
          name="reset_password"),
