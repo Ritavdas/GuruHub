@@ -20,7 +20,7 @@ class Tutor(models.Model):
     taught = models.IntegerField(blank=True)
     rate = models.IntegerField(blank=True)
     address = models.CharField(max_length=50, blank=True)
-    num = models.IntegerField()
+    num = models.IntegerField(default=0)
 
 
 class Subject(models.Model):

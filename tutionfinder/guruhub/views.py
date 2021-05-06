@@ -180,8 +180,8 @@ def detailsadded(request):
 
     profilepic = request.GET['profilepic']
 
-    path = os.path.join("E:\SEMVI\Capstone-I\photos", str(profilepic))
-    shutil.copy(path, "E:/SEMVI/Capstone-I/GuruHub/tutionfinder/media/pics")
+    path = os.path.join("D:\Cap\GuruHub\\tutionfinder\photos", str(profilepic))
+    shutil.copy(path, "D:/Cap/GuruHub/tutionfinder/media/pics")
 
     about = request.GET['about']
     rate = request.GET['rate']
