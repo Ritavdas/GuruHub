@@ -74,10 +74,18 @@
             </li>
             {% if user.is_authenticated %}   
             <li class="nav-item">
-              <a href="http://127.0.0.1:8000/maindash" class="nav-link">Dashboard</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Hello, {{user.first_name}}</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink3" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="true">
+                  Hello, {{user.first_name}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="http://127.0.0.1:8000/addsubject">Add Subject</a>
+                  <a class="dropdown-item" href="http://127.0.0.1:8000/personaldetails">Update Personal Details</a>
+                  <a class="dropdown-item" href="http://127.0.0.1:8000/changepswd">Change Password</a>
+                  <a class="dropdown-item" href="http://127.0.0.1:8000/maindash">Notifications</a>
+                </div>
+              </li>
             </li>
             <li class="nav-item">
               <a href="http://127.0.0.1:8000/logout" class="nav-link">Logout</a>

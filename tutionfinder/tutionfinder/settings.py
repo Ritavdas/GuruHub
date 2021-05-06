@@ -79,13 +79,12 @@ WSGI_APPLICATION = 'tutionfinder.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "GuruHub",
+        'NAME': "guruhub",
         'USER': "postgres",
-        'PASSWORD': "1234",
+        'PASSWORD': "12345",
         'HOST': "localhost"
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
